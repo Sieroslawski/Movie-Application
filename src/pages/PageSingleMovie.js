@@ -1,6 +1,7 @@
 import {useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
+import convertGenre from '../globals/globals'
 import moment from 'moment';
 
 function PageAbout() {
@@ -25,11 +26,14 @@ function PageAbout() {
           
            <div className="movie-poster">
                
-                 {/* { movieData.poster_path === null ?
+                 { 
+                 movieData !== null && 
+                 movieData.poster_path === null ?
                 
                     <img src={noPoster} alt="No Poster" /> :
+                    movieData !== null && 
                     <img src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt={movieData.title} />
-                }  */}
+                } 
                
             </div>
             <div className="movie-header">
@@ -43,11 +47,14 @@ function PageAbout() {
                 { movieData !== null && 
                 <p>{movieData.overview}</p> }
                 <h3>Released</h3>
-                <p>{moment(movieData.release_date).format('ll')}</p>
+                <p>{movieData !== null && 
+                moment(movieData.release_date).format('ll')}</p>
                 <h3>Rating</h3>
-                <p>{movieData.vote_average * 10}%</p>
+                <p>{ movieData !== null && 
+                movieData.vote_average * 10}%</p>
                 <h3>Genre</h3>
-                
+                <p>{ movieData !== null && 
+                (movieData.genres.map(x => x.name).join(", "))}</p>
             </div>
            
         </section>

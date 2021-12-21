@@ -4,8 +4,7 @@ import NavSort from '../components/NavSort';
 import { API_KEY } from '../globals/globals';
 function PageHome({sort} ) {
 
-    const [moviesData, setMovieData] = useState(null);
-    const [genreData, setGenreData] = useState(null);
+    const [moviesData, setMovieData] = useState(null);   
    
     useEffect(() => {
         const fetchMovies = async () => {
@@ -26,7 +25,7 @@ function PageHome({sort} ) {
     return (
         <section className="home-page">
             <NavSort/>
-            {moviesData !== null ? <Movies moviesData={moviesData} genreData={genreData}/> : <p>Fetching Movies...</p>}
+            {moviesData !== null ? <Movies moviesData={moviesData}/> : <p>Fetching Movies...</p>}
         </section>
     )
 }
