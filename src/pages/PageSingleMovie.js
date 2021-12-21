@@ -1,7 +1,6 @@
 import {useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
-import convertGenre from '../globals/globals'
 import moment from 'moment';
 
 function PageAbout() {
