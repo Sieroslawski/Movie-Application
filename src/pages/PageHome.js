@@ -5,7 +5,8 @@ import { API_KEY } from '../globals/globals';
 function PageHome({sort} ) {
 
     const [moviesData, setMovieData] = useState(null);
-
+    const [genreData, setGenreData] = useState(null);
+   
     useEffect(() => {
         const fetchMovies = async () => {
             const res = await fetch(`https://api.themoviedb.org/3/movie/${sort}?api_key=${API_KEY}&language=en-US&page=1`);            
@@ -17,10 +18,15 @@ function PageHome({sort} ) {
         }
         fetchMovies();
     }, [sort])
+
+
+
+
+    
     return (
         <section className="home-page">
             <NavSort/>
-            {moviesData !== null ? <Movies moviesData={moviesData} /> : <p>Fetching Movies...</p>}
+            {moviesData !== null ? <Movies moviesData={moviesData} genreData={genreData}/> : <p>Fetching Movies...</p>}
         </section>
     )
 }

@@ -1,5 +1,7 @@
 import {useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import noPoster from '../images/no-movie-poster.jpg';
+import moment from 'moment';
 
 function PageAbout() {
 
@@ -16,9 +18,38 @@ function PageAbout() {
         fetchMovies();
     }, [id])
 
+    console.log(movieData);
+
     return (
         <section className="single-movie-page">
-           { movieData !== null &&  <h2>{movieData.title}</h2> }
+          
+           <div className="movie-poster">
+               
+                 {/* { movieData.poster_path === null ?
+                
+                    <img src={noPoster} alt="No Poster" /> :
+                    <img src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt={movieData.title} />
+                }  */}
+               
+            </div>
+            <div className="movie-header">
+            { movieData !== null &&  <h2>{movieData.title}</h2> }
+            <button>Favorite this movie</button>
+            <button>Add to Watch Later</button>
+            
+            </div>
+
+            <div className="movie-body">
+                { movieData !== null && 
+                <p>{movieData.overview}</p> }
+                <h3>Released</h3>
+                <p>{moment(movieData.release_date).format('ll')}</p>
+                <h3>Rating</h3>
+                <p>{movieData.vote_average * 10}%</p>
+                <h3>Genre</h3>
+                
+            </div>
+           
         </section>
     )
 }

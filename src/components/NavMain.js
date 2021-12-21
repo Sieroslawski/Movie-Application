@@ -7,6 +7,7 @@ function NavMain() {
                 <li> <NavLink to='/' exact>Home</NavLink></li>
                 <li> <NavLink to='/about'>About</NavLink></li>
                 <li> <NavLink to='/favs'>Favorites</NavLink></li>
+                <li> <NavLink to='/watchlater'>Watch&nbsp;Later</NavLink></li>
             </ul>
         </nav>
     )
