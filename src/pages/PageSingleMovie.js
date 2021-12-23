@@ -9,6 +9,7 @@ function PageAbout() {
 
     const [movieData, setMovieData] = useState(null);
     const { addMovieToWatchlist, watchlist } = useContext(GlobalContext)
+    const {removeMovieFromWatchlist} = useContext(GlobalContext)
     let storedMovie = watchlist.find(x => x === movieData)
     const disabledWatchlist = storedMovie ? true : false
     const { id } = useParams();
@@ -41,7 +42,7 @@ function PageAbout() {
             </div>
             <div className="movie-header">
             { movieData !== null &&  <h2>{movieData.title}</h2> }
-            <button>Remove from favorites</button>
+            <button onClick={() => removeMovieFromWatchlist(movieData.id)}>Remove from favorites</button>
             <button className="btn-watchlist" 
             onClick={() => addMovieToWatchlist(movieData)}
             disabled={disabledWatchlist}>Favorite this movie</button>
