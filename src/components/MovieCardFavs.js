@@ -1,9 +1,9 @@
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
-import convertGenre from '../globals/globals'
 
-function MovieCard({ movie }) {               
+
+function MovieCardFavs({ movie }) {               
     return (
         <div className="movie-card">
             <div className="movie-poster"><Link to={`movie/${movie.id}`}>
@@ -19,7 +19,8 @@ function MovieCard({ movie }) {
                 <p className="movie-title"> <Link to={`movie/${movie.id}`}>{movie.title}</Link></p>
                 <p>{movie.vote_average * 10}%</p>
                 <p>{moment(movie.release_date).format('ll')}</p>
-                <p>{(movie.genre_ids).map(x => (convertGenre(x))).join(", ")}</p>
+                <p>{ movie !== null && 
+                (movie.genres.map(x => x.name).join(", "))}</p>
                 <p>{(movie.overview).replace(/^(.{60}[^\s]*).*/, "$1").replace(/,\s*$/, "") + "..."}</p>
                 <Link to={`movie/${movie.id}`}>More Info</Link>
             </div>
@@ -27,4 +28,4 @@ function MovieCard({ movie }) {
     )
 }
 
-export default MovieCard
+export default MovieCardFavs

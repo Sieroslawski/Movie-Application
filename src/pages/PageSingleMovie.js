@@ -1,12 +1,16 @@
-import {useState, useEffect } from 'react';
+import {useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
 import moment from 'moment';
+import {GlobalContext} from "../Context/GlobalState"
+
 
 function PageAbout() {
 
     const [movieData, setMovieData] = useState(null);
-
+    const { addMovieToWatchlist, watchlist } = useContext(GlobalContext)
+    let storedMovie = watchlist.find(x => x === movieData)
+    const disabledWatchlist = storedMovie ? true : false
     const { id } = useParams();
 
     useEffect(() => {
@@ -37,8 +41,10 @@ function PageAbout() {
             </div>
             <div className="movie-header">
             { movieData !== null &&  <h2>{movieData.title}</h2> }
-            <button>Favorite this movie</button>
-            <button>Add to Watch Later</button>
+            <button>Remove from favorites</button>
+            <button className="btn-watchlist" 
+            onClick={() => addMovieToWatchlist(movieData)}
+            disabled={disabledWatchlist}>Favorite this movie</button>
             
             </div>
 

@@ -17,10 +17,6 @@ function PageHome({sort} ) {
         }
         fetchMovies();
     }, [sort])
-
-
-
-
     
     return (
         <section className="home-page">

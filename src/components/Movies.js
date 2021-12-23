@@ -1,10 +1,9 @@
 import MovieCard from './MovieCard'
 
-function Movies({moviesData, genreData}) {
+function Movies({moviesData}) {
     return (
         <div className="movies-container">
-            {moviesData.map(movie => <MovieCard key={movie.id} movie={movie} />)}
-           
+            {moviesData.map(movie => <MovieCard key={movie.id} movie={movie} />)}           
         </div>
     )
 }
