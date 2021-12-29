@@ -7,6 +7,8 @@ function MovieCardFavs({ movie, type }) {
     return (
         <div className="movie-card">
             <div className="movie-poster"><Link to={`movie/${movie.id}`}>
+
+                {/* If movie poster doesn't exist, display default movie poster */}
                
                 { movie.poster_path === null ?
                 
@@ -20,9 +22,15 @@ function MovieCardFavs({ movie, type }) {
             <div className="movie-info">
                 <p className="movie-title"> <Link to={`movie/${movie.id}`}>{movie.title}</Link></p>
                 <p>{movie.vote_average * 10}%</p>
+
+                 {/* Convert date format to "Dec 00, 0000 format using the moment library" */}
                 <p>{moment(movie.release_date).format('ll')}</p>
+
                 <p>{ movie !== null && 
+                /* Join and space the movie genres */
                 (movie.genres.map(x => x.name).join(", "))}</p>
+
+                 {/* Trim the overview to 60 characters and append "..." to the end of the sentence */}
                 <p>{(movie.overview).replace(/^(.{60}[^\s]*).*/, "$1").replace(/,\s*$/, "") + "..."}</p>
                 <Link to={`movie/${movie.id}`}>More Info</Link>
             </div>

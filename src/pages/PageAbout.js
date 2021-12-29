@@ -2,6 +2,7 @@ import Logo from '../images/tmdb-logo.svg'
 
 function PageAbout() {
     return (
+        // Display a simple about page
         <section className="about-page">
             <h2>Welcome to MVDB!</h2>
             <h3>About this project</h3>

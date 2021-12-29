@@ -1,7 +1,8 @@
 function Footer() {
     return (
-        <footer>
-            <p>&copy; 2021 SSD Students</p>
+        //A simple footer
+        <footer>           
+            <p>&copy; Adrian Sieroslawski - SSD - 2021</p>
         </footer>
     )
 }

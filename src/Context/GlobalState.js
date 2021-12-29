@@ -1,38 +1,37 @@
 import React, {createContext, useReducer, useEffect} from 'react';
 import AppReducer from './AppReducer'
 
-//initial state
-const initialState = {
-    watchlist: localStorage.getItem('watchlist') ? JSON.parse(localStorage.getItem('watchlist')) : [],
-    watched: localStorage.getItem('watched') ? JSON.parse(localStorage.getItem('watched')) : []
+//Initial state
+const initialState = {   
+    favorites: localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : []
+   
 }
 
-//create context
+//Create context
 export const GlobalContext = createContext(initialState)
 
-//provider component
+//Provider component
 export const GlobalProvider = (props) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
 
-    useEffect(() => {
-        localStorage.setItem('watchlist', JSON.stringify(state.watchlist))
-        localStorage.setItem('watched', JSON.stringify(state.watched))
+    useEffect(() => {        
+        localStorage.setItem('favorites', JSON.stringify(state.favorites))
+       
     },[state])
 
-    //actions
-    const addMovieToWatchlist = (movie) => {
-        dispatch({type: "ADD_MOVIE_TO_WATCHLIST", payload: movie})
+//Actions to add and remove from favorites
+    const addMovieToFavorites = (movie) => {
+        dispatch({type: "ADD_MOVIE_TO_FAVORITES", payload: movie})
     }
 
-    const removeMovieFromWatchlist = (id) => {
-        dispatch({type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id})
+    const removeMovieFromFavorites = (id) => {
+        dispatch({type: "REMOVE_MOVIE_FROM_FAVORITES", payload: id})
     }
-
     return (
-        <GlobalContext.Provider value={{watchlist: state.watchlist, 
-        watched: state.watched, 
-        addMovieToWatchlist,
-        removeMovieFromWatchlist}}>
+        <GlobalContext.Provider value={{
+        favorites: state.favorites, 
+        addMovieToFavorites,
+        removeMovieFromFavorites}}>
             {props.children}
         </GlobalContext.Provider>
     )

@@ -1,19 +1,20 @@
-import {useState, useEffect, useContext } from 'react';
+import {useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom';
-import noPoster from '../images/no-movie-poster.jpg';
-import moment from 'moment';
-import {GlobalContext} from "../Context/GlobalState"
+import noPoster from '../images/no-movie-poster.jpg'
+import moment from 'moment'
+import {GlobalContext} from "../Context/GlobalState" //Allow function from GlobalState.js to be used
 
 
 function PageAbout() {
 
-    const [movieData, setMovieData] = useState(null);
-    const { addMovieToWatchlist, watchlist } = useContext(GlobalContext)
-    const {removeMovieFromWatchlist} = useContext(GlobalContext)
-    let storedMovie = watchlist.find(x => x === movieData)
-    const disabledWatchlist = storedMovie ? true : false
-    const { id } = useParams();
+    const [movieData, setMovieData] = useState(null); //Set default state to null
+    const { addMovieToFavorites, favorites, removeMovieFromFavorites } = useContext(GlobalContext) //Allow these to use GlobalContext
+    let storedMovie = favorites.find(x => x === movieData) //Store movies into here
+    const disabledFavorites = storedMovie ? true : false //If the movie is stored, do not allow it be clicked again
+    const { id } = useParams(); //Allow ID to be used
 
+
+    //Fetch the movie based on ID and display it
     useEffect(() => {
         const fetchMovies = async () => {
             const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=467ae5ff4a2ad2a532b819a080fb0e52&language=en-US`);
@@ -22,9 +23,7 @@ function PageAbout() {
         }
         fetchMovies();
     }, [id])
-
-    console.log(movieData);
-
+    
     return (
         <section className="single-movie-page">
           
@@ -42,10 +41,10 @@ function PageAbout() {
             </div>
             <div className="movie-header">
             { movieData !== null &&  <h2>{movieData.title}</h2> }
-            <button onClick={() => removeMovieFromWatchlist(movieData.id)}>Remove from favorites</button>
-            <button className="btn-watchlist" 
-            onClick={() => addMovieToWatchlist(movieData)}
-            disabled={disabledWatchlist}>Favorite this movie</button>
+            {/* Button removes movie based on ID */}
+            <button onClick={() => removeMovieFromFavorites(movieData.id)}>Remove from favorites</button>
+            {/* Button adds movie data to array, and becomes disabled if clicked*/}
+            <button className="btn-favorites" onClick={() => addMovieToFavorites(movieData)} disabled={disabledFavorites}>Favorite this movie</button>
             
             </div>
 
@@ -54,12 +53,15 @@ function PageAbout() {
                 <p>{movieData.overview}</p> }
                 <h3>Released</h3>
                 <p>{movieData !== null && 
+                
+                //Convert date format to "Dec 00, 0000 format using the moment library
                 moment(movieData.release_date).format('ll')}</p>
                 <h3>Rating</h3>
                 <p>{ movieData !== null && 
                 movieData.vote_average * 10}%</p>
                 <h3>Genre</h3>
-                <p>{ movieData !== null && 
+                <p>{ movieData !== null &&
+                //Grab the genres of the movie and format them 
                 (movieData.genres.map(x => x.name).join(", "))}</p>
             </div>
            

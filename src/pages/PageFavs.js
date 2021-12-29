@@ -5,14 +5,15 @@ import MovieCardFavs from '../components/MovieCardFavs'
 
 function PageFavs({movie}) {
 
-    const {watchlist} = useContext(GlobalContext)
+    const {favorites} = useContext(GlobalContext)
 
     return (
+        //Map through all movies that were favorited, if none are found display a message
         <section className="favs-page">
-            {watchlist.length > 0 ? (
+            {favorites.length > 0 ? (
                 <div className ="movie-card">
-                {watchlist.map(movie => (
-                    <MovieCardFavs movie={movie} type="watchlist"/>
+                {favorites.map(movie => (
+                    <MovieCardFavs movie={movie} type="favorites"/>
                 ))}
                 </div>
             ) : <p>You have no favorited movies, return to the homepage to add some!</p>}

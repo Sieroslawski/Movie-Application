@@ -3,13 +3,14 @@ import { GlobalContext } from '../Context/GlobalState'
 
 export const MovieControls = ({movie, type}) => {
 
-    const {removeMovieFromWatchlist} = useContext(GlobalContext)
+    const {removeMovieFromFavorites} = useContext(GlobalContext)
 
     return (
         <div className="card-control">
-            {type === 'watchlist' && (
+        {/* If type is favorites, remove the movie from local storage when clicked */}
+            {type === 'favorites' && (
                 <>
-                <button className="delete-button" onClick={() => removeMovieFromWatchlist(movie.id)}>
+                <button className="delete-button" onClick={() => removeMovieFromFavorites(movie.id)}>
                     Remove from favorites
                 </button>
                 </>

@@ -3,6 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 function NavSort() {
     return (
+        // Display the dropdown menu using bootstrap for sorting movies by popular, top-rated, now-playing and upcoming
         <div className="nav-sort">
             <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">

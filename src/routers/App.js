@@ -6,12 +6,12 @@ import PageAbout from "../pages/PageAbout";
 import PageFavs from "../pages/PageFavs";
 import PageSingleMovie from "../pages/PageSingleMovie";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PageWatchLater from "../pages/PageWatchLater";
 import {GlobalProvider} from "../Context/GlobalState"
 
 
 function App() {
   return (
+    //GlobalProvider is wrapped around everything to allow access to it, followed by BrowserRouter so it can allow access to paths
     <GlobalProvider>
       <BrowserRouter>
         <div className="wrapper">
@@ -38,7 +38,7 @@ function App() {
               <Route path="/movie/:id" element={<PageSingleMovie />} />
               <Route path="about" element={<PageAbout />} />
               <Route path="favs" element={<PageFavs />} />
-              <Route path="watchlater" element={<PageWatchLater />} />
+              
             </Routes>
           </main>
           <Footer />

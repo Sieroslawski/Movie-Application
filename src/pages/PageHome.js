@@ -4,7 +4,10 @@ import NavSort from '../components/NavSort';
 import { API_KEY } from '../globals/globals';
 function PageHome({sort} ) {
 
-    const [moviesData, setMovieData] = useState(null);   
+    const [moviesData, setMovieData] = useState(null);
+
+    //Grab the the custom URL and get the movie data with fetch()
+    // ${sort} will allows us to insert parameters for different types of movie sorting
    
     useEffect(() => {
         const fetchMovies = async () => {
