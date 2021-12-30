@@ -27,7 +27,7 @@ function MovieCard({ movie }) {
                 <p>{(movie.genre_ids).map(x => (convertGenre(x))).join(", ")}</p>
                 {/* Trim the overview to 60 characters and append "..." to the end of the sentence */}
                 <p>{(movie.overview).replace(/^(.{60}[^\s]*).*/, "$1").replace(/,\s*$/, "") + "..."}</p>
-                <Link to={`movie/${movie.id}`}>More Info</Link>
+                <button className="more-info"><Link to={`movie/${movie.id}`}>More Info</Link></button>
             </div>
         </div>
     )

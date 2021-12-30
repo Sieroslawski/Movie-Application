@@ -17,7 +17,6 @@ function NavSort() {
                     <Dropdown.Item href="/sort/upcoming">Upcoming</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-
         </div>
     )
 }

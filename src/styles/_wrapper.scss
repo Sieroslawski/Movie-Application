@@ -1,14 +1,17 @@
 // Wrapper
 .wrapper {
-    max-width: em(1000);
-    margin: 0 auto;
     
-    border-radius: 10px;
-    background-color: rgba(grey, 0.2);
+    margin: 0 auto!important;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: #4158D0;
+    background-image: linear-gradient(180deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    
+    height: 100%;
+    background-size: cover;   
 
     @include mq($desktopWide){
-        margin: em(8) auto;
-        border: 3px solid $textColor;
+        margin: em(8) auto;       
     }
 
 }
