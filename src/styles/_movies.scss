@@ -1,5 +1,5 @@
 // Movies
-.movies-container {
+.movies-container, .movie-card-favs {
     padding: em(12);
 
     @include mq($tablet){
@@ -19,7 +19,7 @@
 }
 
 @media only screen and (max-width: 1300px) {
-    .movies-container {
+    .movies-container, .movie-card-favs {
         padding: em(20);
         grid-template-columns: 1fr 1fr;
         gap: em(18);
@@ -28,7 +28,7 @@
   }
 
   @media only screen and (max-width: 950px) {
-    .movies-container {
+    .movies-container, .movie-card-favs {
         padding: em(20);
         grid-template-columns: 1fr;
         gap: em(18);
@@ -38,14 +38,14 @@
   }
 
 @media only screen and (max-width: 730px) {
-    .movies-container {
+    .movies-container, .movie-card-favs {
         padding: em(20);
         grid-template-columns: 1fr;
         gap: em(18);
     }  
   }
 
-.movie-card {
+.movie-card, .movie-card-favs {
     background-color: rgba(black, 0.3);
     border: em(3) solid $textColor;
     border-top: 2px solid rgba(rgb(255, 0, 0), 0.6);
@@ -64,12 +64,13 @@
         
     }
 }
-
+  
 .movie-info {    
    padding-top: 20px;
 }
 
-.movie-title {
+a {
+    text-decoration: none;
     font-weight: 600;
 }
 
@@ -94,18 +95,235 @@
     position: relative;
     text-align: center;
     text-transform: none;
+    text-decoration: none;
     user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: 90%;
-        
-     
+    -webkit-user-select: none;   
+    width: 90%;             
 }
 .more-info:hover,
-.more-info:focus {
-  opacity: .75;      
+.more-info:focus, 
+.delete-button:hover,
+.delete-button:focus,
+.delete-button2:hover,
+.delete-button2:focus,
+.add-button:hover,
+.add-button:focus {
+  opacity: .55;      
 }           
 
 .more-info > a {
     text-decoration: none;
 }
+
+.card-control {
+    display:inline-block;
+    position:relative;         
+}
+
+.delete-button {                         
+    background-color: rgb(224, 22, 22);
+    margin-left: 20px;    
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;    
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;    
+    max-width: 80px;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    border-radius: 30px;    
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;        
+    position: absolute;
+    bottom: 8em;
+    right:13em;
+    text-transform:uppercase;
+    padding:1em 1.5em;
+    
+}
+
+.delete-button2 {
+    background-color: rgb(224, 22, 22);     
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;    
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;    
+    max-width: 80px;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    border-radius: 30px;    
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;               
+    text-transform:uppercase;
+    padding:1em 1.5em;
+    margin: 0 auto;
+}
+
+.add-button {
+    background-color: rgb(22, 224, 113);     
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;    
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;    
+    max-width: 80px;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    border-radius: 50px;    
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;               
+    text-transform:uppercase;
+    padding:1em 1.5em;    
+}
+
+
+.single-movie-page {
+    display: flex;
+    position: relative;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;    
+    max-width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items:center;
+    padding: 40px;
+}
+
+.single-page-header-text {
+    color: rgb(48, 45, 45);
+    font-weight: 600;
+    
+}
+
+.single-movie-poster {    
+    border: 1px solid white;
+}
+
+.single-movie-body {
+    width: 50%;
+    margin-left: 40px;
+}
+
+@media only screen and (max-width: 1670px) {
+    .delete-button {
+        position: absolute;
+        bottom: 6em;
+        right:10em;
+    }  
+  }
+
+  @media only screen and (max-width: 1501px) {
+    .delete-button {
+        position: absolute;
+        bottom: 6em;
+        right:9em;
+    }  
+  }
+
+@media only screen and (max-width: 950px) {
+    .delete-button {
+        position: absolute;
+        bottom: 12em;
+        right:18em;
+    }  
+  }
+
+  @media only screen and (max-width: 865px) {
+    .delete-button {
+        position: absolute;
+        bottom: 10em;
+        right:15em;
+    }
+    .single-movie-page {
+        display: block;
+       
+       
+    }
+    .single-movie-body {
+        width: 100%;        
+        text-align: left;        
+        margin: 0 auto;
+    }
+  }
+
+  @media only screen and (max-width: 736px) {
+    .delete-button {
+        position: absolute;
+        bottom: 8em;
+        right:12em;
+    }  
+  }
+
+  
+  @media only screen and (max-width: 637px) {
+    .delete-button {
+        position: absolute;
+        bottom: 13em;
+        right:20em;
+        
+    }
+    .movie-card-favs {
+        display: block;
+    }
+    .movie-card {
+        display: block;
+    }
+
+  }
+
+  @media only screen and (max-width: 572px) {
+    .delete-button {
+        position: absolute;
+        bottom: 10em;
+        right:15em;
+    }  
+  }
+
+  @media only screen and (max-width: 505px) {
+    .delete-button {
+        position: absolute;
+        bottom: 7em;
+        right:10em;
+    }  
+  }
+  @media only screen and (max-width: 427px) {
+    .delete-button {
+        position: absolute;
+        bottom: 4em;
+        right:6em;
+    }
+    .add-button, .delete-button2 {
+        margin: 0 auto;
+    }  
+  }
+
+
+  
+
+

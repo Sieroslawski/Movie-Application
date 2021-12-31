@@ -9,10 +9,10 @@ function PageFavs({movie}) {
 
     return (
         //Map through all movies that were favorited, if none are found display a message
-        <section className="home-page">
-        <div className="movies-container">
+        <section className="favs-page">
+        <div className="movies-container-favs">
             {favorites.length > 0 ? (
-                <div className ="movies-card">
+                <div className="movies-container">
                 {favorites.map(movie => (
                     <MovieCardFavs movie={movie} type="favorites"/>
                 ))}

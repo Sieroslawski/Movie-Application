@@ -27,7 +27,7 @@ function PageAbout() {
     return (
         <section className="single-movie-page">
           
-           <div className="movie-poster">
+           <div className="single-movie-poster">
                
                  { 
                  movieData !== null && 
@@ -38,31 +38,28 @@ function PageAbout() {
                     <img src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt={movieData.title} />
                 } 
                
-            </div>
-            <div className="movie-header">
+            </div>            
+            <div className="single-movie-body">
             { movieData !== null &&  <h2>{movieData.title}</h2> }
-            {/* Button removes movie based on ID */}
-            <button onClick={() => removeMovieFromFavorites(movieData.id)}>Remove from favorites</button>
-            {/* Button adds movie data to array, and becomes disabled if clicked*/}
-            <button className="btn-favorites" onClick={() => addMovieToFavorites(movieData)} disabled={disabledFavorites}>Favorite this movie</button>
-            
-            </div>
-
-            <div className="movie-body">
-                { movieData !== null && 
+                <h3 className="single-page-header-text">Overview</h3> 
+                { movieData !== null &&                
                 <p>{movieData.overview}</p> }
-                <h3>Released</h3>
+                <h3 className="single-page-header-text">Released</h3>
                 <p>{movieData !== null && 
                 
                 //Convert date format to "Dec 00, 0000 format using the moment library
                 moment(movieData.release_date).format('ll')}</p>
-                <h3>Rating</h3>
+                <h3 className="single-page-header-text">Rating</h3>
                 <p>{ movieData !== null && 
                 movieData.vote_average * 10}%</p>
-                <h3>Genre</h3>
+                <h3 className="single-page-header-text">Genre</h3>
                 <p>{ movieData !== null &&
                 //Grab the genres of the movie and format them 
                 (movieData.genres.map(x => x.name).join(", "))}</p>
+                 {/* Button removes movie based on ID */}
+            <button onClick={() => removeMovieFromFavorites(movieData.id)} className="delete-button2" title="Remove from favorites">❌</button>
+            {/* Button adds movie data to array, and becomes disabled if clicked*/}
+            <button className="btn-favorites" onClick={() => addMovieToFavorites(movieData)} disabled={disabledFavorites} className="add-button" title="Add to favorites">❤️</button>
             </div>
            
         </section>

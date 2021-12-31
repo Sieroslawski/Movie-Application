@@ -10,8 +10,8 @@ export const MovieControls = ({movie, type}) => {
         {/* If type is favorites, remove the movie from local storage when clicked */}
             {type === 'favorites' && (
                 <>
-                <button className="delete-button" onClick={() => removeMovieFromFavorites(movie.id)}>
-                    Remove from favorites
+                <button className="delete-button" onClick={() => removeMovieFromFavorites(movie.id)} title="Remove movie from favorites">
+                X
                 </button>
                 </>
             )}
