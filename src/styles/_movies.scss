@@ -101,15 +101,29 @@ a {
     width: 90%;             
 }
 .more-info:hover,
-.more-info:focus, 
+.more-info:focus,
+.more-info:active, 
 .delete-button:hover,
 .delete-button:focus,
+.delete-button:active,
 .delete-button2:hover,
-.delete-button2:focus,
+.delete-button2:focus
+.delete-button2:active,
 .add-button:hover,
-.add-button:focus {
+.add-button:focus
+.add-button:active {
   opacity: .55;      
-}           
+}
+
+.add-button:active, .add-button:visited {
+    color: blue;
+    background-color: blue;
+}
+
+.delete-button2:active, .delete-button:active {
+    color: black;
+    background-color: black;
+}
 
 .more-info > a {
     text-decoration: none;
@@ -230,6 +244,36 @@ a {
     margin-left: 40px;
 }
 
+.about-page-wrapper {
+    padding: 50px 60px 50px 60px;
+    display: flex;
+}
+
+.about-moviemania {
+       
+    font-weight: 900;
+    font-size: 50px;
+    background: #5990CF;
+    background: -webkit-linear-gradient(to left, #5990CF 0%, #B6CF11 100%);
+    background: -moz-linear-gradient(to left, #5990CF 0%, #B6CF11 100%);
+    background: linear-gradient(to left, #5990CF 0%, #B6CF11 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-project, .about-ipsum {
+    width: 47%;
+    padding: 10px;
+}
+
+.not-endorsed {
+    text-decoration: underline;
+}
+
+#logo {
+    width: 80%;
+}
+
 @media only screen and (max-width: 1670px) {
     .delete-button {
         position: absolute;
@@ -260,15 +304,31 @@ a {
         bottom: 10em;
         right:15em;
     }
+
     .single-movie-page {
-        display: block;
-       
-       
+        display: block;              
     }
+
     .single-movie-body {
         width: 100%;        
         text-align: left;        
         margin: 0 auto;
+    }
+  }
+  @media only screen and (max-width: 776px) {
+    .about-page-wrapper {
+        padding: 10px;
+        width: 100%;
+        display: block;
+        flex-wrap: wrap;
+        justify-content: space-between;
+       
+    }
+    .about-moviemania {
+        font-size: 30px;
+    }
+    .about-project, .about-ipsum {
+        width: 100%;
     }
   }
 
@@ -279,6 +339,7 @@ a {
         right:12em;
     }  
   }
+
 
   
   @media only screen and (max-width: 637px) {
