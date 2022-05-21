@@ -6,7 +6,7 @@ import convertGenre from '../globals/globals'
 function MovieCard({ movie }) {
     return (
         <div className="movie-card">
-            <div className="movie-poster"><Link to={`movie/${movie.id}`}>
+            <div className="movie-poster"><Link to={`/movie/${movie.id}`}>
 
                 {/* If movie poster doesn't exist, display default movie poster */}
 
@@ -27,7 +27,7 @@ function MovieCard({ movie }) {
                 <p>{(movie.genre_ids).map(x => (convertGenre(x))).join(", ")}</p>
                 {/* Trim the overview to 60 characters and append "..." to the end of the sentence */}
                 <p>{(movie.overview).replace(/^(.{60}[^\s]*).*/, "$1").replace(/,\s*$/, "") + "..."}</p>
-                <button className="more-info"><Link to={`movie/${movie.id}`}>More Info</Link></button>
+                <button className="more-info"><Link to={`/movie/${movie.id}`}>More Info</Link></button>
             </div>
         </div>
     )
