@@ -291,6 +291,23 @@ a {
     }  
   }
 
+  
+  @media only screen and (max-width: 1280px) {
+    .delete-button {
+        position: absolute;
+        bottom: 8em;
+        right:12em;
+    }  
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .delete-button {
+        position: absolute;
+        bottom: 6em;
+        right:9em;
+    }  
+  }
+
 @media only screen and (max-width: 950px) {
     .delete-button {
         position: absolute;
@@ -302,8 +319,8 @@ a {
   @media only screen and (max-width: 865px) {
     .delete-button {
         position: absolute;
-        bottom: 10em;
-        right:15em;
+        bottom: 12em;
+        right:17em;
     }
 
     .single-movie-page {
@@ -377,8 +394,18 @@ a {
   @media only screen and (max-width: 427px) {
     .delete-button {
         position: absolute;
-        bottom: 4em;
-        right:6em;
+        bottom: 8em;
+        right:12em;
+    }
+    .add-button, .delete-button2 {
+        margin: 0 auto;
+    }  
+  }
+  @media only screen and (max-width: 375px) {
+    .delete-button {
+        position: absolute;
+        bottom: 6em;
+        right:10em;
     }
     .add-button, .delete-button2 {
         margin: 0 auto;
