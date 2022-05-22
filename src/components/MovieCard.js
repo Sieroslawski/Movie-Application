@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
-import convertGenre from '../globals/globals'
+import convertGenre from '../globals/Globals'
 
 function MovieCard({ movie }) {
     return (

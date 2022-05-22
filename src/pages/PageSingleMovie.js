@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg'
 import moment from 'moment'
 import {GlobalContext} from "../Context/GlobalState" //Allow function from GlobalState.js to be used
-import ReactiveButton from 'reactive-button';
 
 
 function PageAbout() {
