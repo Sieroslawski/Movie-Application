@@ -7,6 +7,7 @@ const initialState = {
    
 }
 
+
 //Create context
 export const GlobalContext = createContext(initialState)
 
@@ -21,7 +22,7 @@ export const GlobalProvider = (props) => {
 
 //Actions to add and remove from favorites
     const addMovieToFavorites = (movie) => {
-        dispatch({type: "ADD_MOVIE_TO_FAVORITES", payload: movie})
+        dispatch({type: "ADD_MOVIE_TO_FAVORITES", payload: movie})       
     }
 
     const removeMovieFromFavorites = (id) => {

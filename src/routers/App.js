@@ -10,6 +10,7 @@ import {GlobalProvider} from "../Context/GlobalState"
 
 
 function App() {
+
   return (
     //GlobalProvider is wrapped around everything to allow access to it, followed by BrowserRouter so it can allow access to paths
     <GlobalProvider>

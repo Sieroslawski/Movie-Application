@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg'
 import moment from 'moment'
 import {GlobalContext} from "../Context/GlobalState" //Allow function from GlobalState.js to be used
+import ReactiveButton from 'reactive-button';
 
 
 function PageAbout() {
@@ -12,6 +13,7 @@ function PageAbout() {
     let storedMovie = favorites.find(x => x === movieData) //Store movies into here
     const disabledFavorites = storedMovie ? true : false //If the movie is stored, do not allow it be clicked again
     const { id } = useParams(); //Allow ID to be used
+ 
 
 
     //Fetch the movie based on ID and display it
