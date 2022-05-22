@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Movies from '../components/Movies';
 import NavSort from '../components/NavSort';
-import { API_KEY } from '../globals/Globals';
+import { API_KEY } from '../Globals/Globals';
 function PageHome({sort} ) {
 
     const [moviesData, setMovieData] = useState(null);
