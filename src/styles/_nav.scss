@@ -50,6 +50,13 @@ nav {
 }
 
 .nav-sort {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-end;
+    justify-content: space-between;
     li {
         background-color: $highlightColor;
     }
@@ -60,6 +67,23 @@ nav {
             background-color: darken($highlightColor, 8);
         }
     }
+}
+
+.search-bar {
+    margin-right: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 38px;
+    margin-bottom: 10px;
+    border-radius: 5px;   
+    input {
+        padding: 10px;        
+    }
+}
+
+::placeholder {
+    color: white;
 }
 
 @media only screen and (max-width: 540px) {
